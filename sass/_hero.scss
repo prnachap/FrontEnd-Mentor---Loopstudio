@@ -1,0 +1,15 @@
+.hero{
+    margin-top: 16.3rem;
+
+    &__wrapper{
+        max-width: 65rem;
+        width: 100%;
+        border: 0.2rem solid $white;
+        padding: 2.6rem;
+
+        @include breakpoint-up(x-large){
+            margin-top: 13rem;
+            padding: 4rem;
+        }
+    }
+}

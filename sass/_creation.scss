@@ -1,0 +1,168 @@
+.creation{
+    margin-top: 9.6rem;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "title"
+                         "pic-1"
+                         "pic-2"
+                         "pic-3"
+                         "pic-4"
+                         "pic-5"
+                         "pic-6"
+                         "pic-7"
+                         "pic-8"
+                         "button";
+    grid-row-gap:  2.4rem;
+
+    @include breakpoint-up(large){
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas: "title button"
+                              "pic-1 pic-2"
+                              "pic-3 pic-4"
+                              "pic-5 pic-6"
+                              "pic-7 pic-8";
+        grid-column-gap: 2.4rem;
+    }
+
+   
+    @include breakpoint-up(x-large){
+        margin-top: 18.4rem;
+        text-align: left;
+        grid-template-columns: repeat(4,minmax(min-content,1fr));
+        grid-row: auto;
+        grid-template-areas: "title title . button"
+                              "pic-1 pic-2 pic-3 pic-4"
+                              "pic-5 pic-6 pic-7 pic-8";
+        grid-gap: 3rem;
+        
+    }
+
+    &__title{
+        margin-bottom: 4.8rem;
+        
+        @include breakpoint-up(x-large){
+            grid-area: title;
+            // align-self: center;
+            margin-bottom: 8rem;
+        }
+    }
+    &__btn{
+        justify-self: center;
+        @include breakpoint-up(x-large){
+            grid-area: button;
+            justify-self: end;
+        }
+    }
+
+    &__card{
+        position: relative;
+
+        // postioning title
+        h3{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            margin: 2rem;
+            @include breakpoint-up(x-large){
+                margin: 3.2rem 4rem;
+            }
+            span{
+                display: block;
+            }
+        }
+
+        // image placement within grid
+            &--1{
+                grid-area: pic-1;
+            }
+            &--2{
+                grid-area: pic-2;
+            }
+            &--3{
+                grid-area: pic-3;
+            }
+            &--4{
+                grid-area: pic-4;
+            }
+            &--5{
+                grid-area: pic-5;
+            }
+            &--6{
+                grid-area: pic-6;
+            }
+            &--7{
+                grid-area: pic-7;
+            }
+            &--8{
+                grid-area: pic-8;
+            }
+        
+    }
+
+    &__bg{
+        height: 12rem;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: pointer;
+        
+
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($darkGray,0.8);
+            transition : all .6s ease;
+        }
+        
+        &:hover::after{
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &--1{
+            background-image: url("/images/desktop/image-deep-earth.jpg");
+
+            
+        }
+
+        &--2{
+            background-image: url("/images/desktop/image-night-arcade.jpg");
+        }
+
+        &--3{
+            background-image: url("/images/desktop/image-soccer-team.jpg");
+        }
+        &--4{
+            background-image: url("/images/desktop/image-grid.jpg");
+        }
+        &--5{
+            background-image: url("/images/desktop/image-from-above.jpg");
+        }
+        &--6{
+            background-image: url("/images/desktop/image-pocket-borealis.jpg");
+        }
+        &--7{
+            background-image: url("/images/desktop/image-curiosity.jpg");
+        }
+        &--8{
+            background-image: url("/images/desktop/image-fisheye.jpg");
+        }
+
+
+        @include breakpoint-up(x-large){
+            height: 45rem;
+        }
+    }
+
+   
+
+    
+}
