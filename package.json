@@ -4,11 +4,19 @@
   "description": "![Design preview for the Loopstudios landing page coding challenge](./design/desktop-preview.jpg)",
   "main": "index.js",
   "scripts": {
-    "watch:sass": "node-sass -w sass/ -o dist/css/ --recursive"
+    "watch:sass": "node-sass -w sass/ -o dist/css/ --recursive",
+    "prefix:css":"postcss --use autoprefixer -b 'last 10 versions' dist/css/main.css -o dist/css/style.prefix.css",
+    "compress":"node-sass dist/css/style.prefix.css dist/css/style.min.css --output-style compressed"
+   
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "node-sass": "^5.0.0"
+  },
+  "devDependencies": {
+    "auto-prefixer": "^0.4.2",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1"
   }
 }
